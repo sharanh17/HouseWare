@@ -68,3 +68,50 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+//## Changes made by Sharan//#
+
+
+Rendering Todo Item:
+Verify that a todo item is rendered with the correct text.
+Ensure that the todo item displays an unchecked checkbox indicating it's not completed.
+Marking Todo Item as Completed:
+Simulate a user click on the todo item's checkbox.
+Verify that the todo item updates its appearance to indicate completion (e.g., checked checkbox, strikethrough text).
+Deleting Todo Item:
+Simulate a user click on the delete button for the todo item.
+Ensure that the todo item is removed from the list.
+TodoList Component:
+
+Type of Tests: Integration Tests
+Test Cases:
+Rendering Todo List:
+Verify that the todo list component renders a list of todo items.
+Ensure that each todo item in the list corresponds to a todo item object provided as props.
+Adding New Todo Item:
+Simulate user input in the input field to add a new todo item.
+Verify that the new todo item is added to the list and displayed correctly.
+Filtering Todo Items:
+Simulate user interaction with the filter buttons (e.g., All, Active, Completed).
+Ensure that the todo list updates to display only the relevant todo items based on the selected filter.
+Services:
+TodoService:
+Type of Tests: Unit Tests
+Test Cases:
+Fetching Todo Items:
+Mock the API call to fetch todo items.
+Verify that the todo items are fetched correctly from the API.
+Adding New Todo Item:
+Mock the API call to add a new todo item.
+Verify that the new todo item is added to the API correctly.
+Updating Todo Item Completion Status:
+Mock the API call to update the completion status of a todo item.
+Verify that the completion status of the todo item is updated correctly in the API.
+
+eg-
+test('renders todo item with correct text', () => {
+  const todo = { id: 1, text: 'Test Todo', completed: false };
+  const { getByText } = render(<TodoItem todo={todo} />);
+  expect(getByText('Test Todo')).toBeInTheDocument();
+});
